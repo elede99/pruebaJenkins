@@ -21,6 +21,7 @@ pipeline {
             steps{
                 sh "docker push ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} "
             }
+        }
         stage('Deploy container'){
                 steps{
                     sh "if [ 'docker stop ${env.NameContainer}' ] ; then docker rm -f ${env.NameContainer}"
